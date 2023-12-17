@@ -1,0 +1,65 @@
+<!-- views/auth/editProfile.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Profile</title>
+  <!-- Thêm đường link đến Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- Optional: Thêm đường link đến một CSS tùy chỉnh cho trang quản lý sản phẩm -->
+  <link rel="stylesheet" href="/styles/product-management.css">
+</head>
+<style>
+  .profile-image {
+    width: 100px;
+    display: block;
+    margin: 10px;
+  }
+</style>
+<body class="bg-light">
+  <div class="container mt-5">
+    <!-- Header -->
+    <div class="row mb-4">
+      <div class="col-md-12">
+        <h1 class="mb-4">Edit Profile</h1>
+        <form action="/profile/edit" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" name="username" value="<%= user.username %>" required disabled>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" name="email" value="<%= user.email %>" required disabled>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="text" class="form-control" name="phone" value="<%= user.phone%>" required>
+          </div>
+
+          <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" class="form-control" name="address" value="<%= user.address %>" required>
+          </div>
+
+          <div class="form-group">
+            <label for="image">Profile Picture:</label>
+            <input type="file" class="form-control-file" name="image" accept="image/*">
+            <img src="/uploads/<%= user.image %>" alt="Profile Picture" class="profile-image">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Update Profile</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Thêm đường link đến Bootstrap JS và Popper.js (đối với Bootstrap 4) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

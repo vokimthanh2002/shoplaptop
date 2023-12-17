@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+</head>
+<style>
+  .profile-container {
+    display: flex;
+    padding: 50px;
+  }
+
+  .profile-image {
+    width: 200px;
+    display: block;
+    margin: 10px auto;
+  }
+
+  .profile-details {
+    margin-top: 10px;
+  }
+
+  .button-control a {
+    color: white;
+  }
+</style>
+
+<body class="bg-light">
+  <%- include('../layout/header.ejs') %>
+  <div class="container mt-5">
+    <!-- Header -->
+    <form action="/profile/edit" method="post" enctype="multipart/form-data">
+      <div class="row profile-container">
+        <div class="col-md-3">
+          <img src="/uploads/<%= user.image %>" alt="Profile Picture" class="profile-image">
+        </div>
+        <div class="col-md-9">
+          <h1 class="mb-4">Profile</h1>
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" name="username" value="<%= user.username %>" required disabled>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" name="email" value="<%= user.email %>" required disabled>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="text" class="form-control" name="phone" value="<%= user.phone %>" required disabled>
+          </div>
+
+          <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" class="form-control" name="address" value="<%= user.address %>" required disabled>
+          </div>
+
+          <div class="button-control">
+            <button class="btn btn-primary"><a href="/profile/change-password">Change Password</a></button>
+            <button class="btn btn-primary"><a href="/profile/edit">Update Profile</a></button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <%- include('../layout/footer.ejs') %>
+  <!-- Thêm đường link đến Bootstrap JS và Popper.js (đối với Bootstrap 4) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

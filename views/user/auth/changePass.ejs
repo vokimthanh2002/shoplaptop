@@ -1,0 +1,58 @@
+<!-- views/auth/editProfile.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Profile</title>
+  <!-- Thêm đường link đến Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- Optional: Thêm đường link đến một CSS tùy chỉnh cho trang quản lý sản phẩm -->
+  <link rel="stylesheet" href="/styles/product-management.css">
+</head>
+<style>
+  .profile-image {
+    width: 100px;
+    display: block;
+    margin: 10px;
+  }
+</style>
+<body class="bg-light">
+  <div class="container mt-5">
+    <!-- Header -->
+    <div class="row mb-4">
+      <div class="col-md-12">
+        <h1 class="mb-4">Change Password</h1>
+        <% if (error) { %>
+            <p class="text-danger"><%= error %></p>
+          <% } %>
+        <form action="/profile/change-password" method="post">
+
+          <div class="form-group">
+            <label for="currentPassword">Curren Password:</label>
+            <input type="password" class="form-control" name="currentPassword"  required>
+          </div>
+
+          <div class="form-group">
+            <label for="newPassword">New Password</label>
+            <input type="password" class="form-control" name="newPassword"  required>
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword">Confirm New Password:</label>
+            <input type="password" class="form-control" name="confirmPassword" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Change Password</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Thêm đường link đến Bootstrap JS và Popper.js (đối với Bootstrap 4) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
